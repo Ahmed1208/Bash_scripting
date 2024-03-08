@@ -15,16 +15,15 @@ fi
 
 echo what is your name
 read name
-echo your name is $name
+echo "name=$name" | sudo tee -a /var/log/messages > /dev/null
 
 echo what is your age
 read age
-[[ "$age" =~ ^[0-9]+$ ]] || echo invalid age 
+[[ "$age" == ^[0-9]+$ ]] || echo "age=$age" | sudo tee -a /var/log/messages > /dev/null  
 
 
 echo what is your country
 read country
-echo $country
-
+echo "country=$country" | sudo tee -a /var/log/messages > /dev/null
 
 exit 0
